@@ -38,6 +38,8 @@ type Command struct {
 	Stdout pulumi.StringOutput `pulumi:"stdout"`
 	// Trigger replacements on changes to this input.
 	Triggers pulumi.ArrayOutput `pulumi:"triggers"`
+	// The command to run on update, if empty, create will run again.
+	Update pulumi.StringPtrOutput `pulumi:"update"`
 }
 
 // NewCommand registers a new resource with the given unique name, arguments, and options.
@@ -93,6 +95,8 @@ type commandArgs struct {
 	// Pass a string to the command's process as standard in
 	Stdin    *string       `pulumi:"stdin"`
 	Triggers []interface{} `pulumi:"triggers"`
+	// The command to run on update, if empty, create will run again.
+	Update *string `pulumi:"update"`
 }
 
 // The set of arguments for constructing a Command resource.
@@ -111,6 +115,8 @@ type CommandArgs struct {
 	// Pass a string to the command's process as standard in
 	Stdin    pulumi.StringPtrInput
 	Triggers pulumi.ArrayInput
+	// The command to run on update, if empty, create will run again.
+	Update pulumi.StringPtrInput
 }
 
 func (CommandArgs) ElementType() reflect.Type {
