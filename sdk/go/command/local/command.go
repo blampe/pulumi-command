@@ -253,6 +253,11 @@ func (o CommandOutput) Triggers() pulumi.ArrayOutput {
 	return o.ApplyT(func(v *Command) pulumi.ArrayOutput { return v.Triggers }).(pulumi.ArrayOutput)
 }
 
+// The command to run on update, if empty, create will run again.
+func (o CommandOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Command) pulumi.StringPtrOutput { return v.Update }).(pulumi.StringPtrOutput)
+}
+
 type CommandArrayOutput struct{ *pulumi.OutputState }
 
 func (CommandArrayOutput) ElementType() reflect.Type {
