@@ -148,6 +148,7 @@ func (k *commandProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) 
 		"interpreter": false,
 		"create":      false,
 		"delete":      false,
+		"update":      false,
 		"stdin":       false,
 		"localPath":   false,
 		"remotePath":  false,
